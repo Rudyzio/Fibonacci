@@ -1,0 +1,16 @@
+<h1>Calculator</h1>
+
+<strong>Calculate the nth entry in the Fibonacci sequence!</strong>
+
+<br />
+<div class="form-group">
+    <label for="toCalculate">Number to calculate</label>
+    <input type="number" class="form-control" id="toCalculate" [(ngModel)]="numberToCalculate">
+    <div *ngIf="errorMessage" [style.display]="'block'" class="invalid-feedback">
+        {{errorMessage}}
+    </div>
+</div>
+<button class="btn btn-primary" (click)="callBackend()">Calculate</button>
+<br />
+<br />
+<strong>{{ message }}</strong>

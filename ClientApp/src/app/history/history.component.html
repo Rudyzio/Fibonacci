@@ -1,0 +1,28 @@
+<h1 id="tableLabel">History</h1>
+
+<p *ngIf="!entries"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="entries">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Input</th>
+      <th>Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let entry of entries">
+      <td>{{ entry.dateCreated+'Z' | date:'yyyy-MM-dd HH:mm:ss' }}</td>
+      <td>{{ entry.input }}</td>
+      <td>{{ entry.result }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<nav>
+  <ul class="pagination">
+    <li *ngIf="previousPage" class="page-item"><button class="page-link" (click)="onChangePage(previousPage)">Previous</button></li>
+    <li *ngIf="nextPage" class="page-item"><button class="page-link" (click)="onChangePage(nextPage)" href="#">Next</button></li>
+  </ul>
+</nav>
+
